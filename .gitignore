@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/processed/
+data/eval/ablation_table.md
+.ipynb_checkpoints/
+mlruns/
+mlartifacts/
+*.db

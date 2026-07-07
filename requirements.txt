@@ -1,0 +1,23 @@
+# retrieval + generation stack
+fastapi==0.115.6
+uvicorn==0.34.0
+pymupdf==1.25.1
+tiktoken==0.8.0
+sentence-transformers==3.3.1
+faiss-cpu==1.9.0.post1
+rank-bm25==0.2.2
+mlflow==3.14.0
+matplotlib==3.10.0
+jupyter==1.1.1
+python-dotenv==1.0.1
+groq==0.13.1
+requests==2.32.3   # only used for the Ollama local-fallback HTTP call in src/generation/generator.py
+
+# pinned to match the deployed churn model's training environment (models/churn_model/)
+# so the pickled xgb/calibrator artifacts unpickle without a version mismatch
+pandas==2.3.3
+numpy==2.4.6
+scikit-learn==1.9.0
+xgboost==3.3.0
+shap==0.52.0
+joblib==1.4.2
