@@ -1,0 +1,11 @@
+offer_id,offer_name,eligibility_condition,discount_pct,max_duration_days,driver_tag,notes
+OFR-101,Renewal Reminder (no discount),"is_auto_renew = 0, within 7 days of expiry",0,0,is_auto_renew,No financial incentive; targets the forgotten-opt-out segment of Playbook P1.
+OFR-102,Plan-Length Concession,"is_auto_renew = 0, active discount already applied",0,90,is_auto_renew,Shorten the ask (shorter plan) instead of stacking a second discount.
+OFR-201,Plan-Commitment Loyalty Rate,"payment_plan_days <= 30, tenure_days >= 60",10,365,payment_plan_days,"Requires upgrading to a 90-day plan or longer; framed as loyalty, not churn-prevention."
+OFR-301,Stepped Discount Renewal,"discount active, within 14 days of discount expiry",25,90,discount,Step down from the prior discount pct; never re-offer the original rate flat.
+OFR-302,Plan-Tier Downgrade,"plan_list_price in top tier, actual_amount_paid discounted",0,365,plan_list_price,Offer a lower list-price tier at full price instead of a discount on the current tier.
+OFR-401,Dormant Win-Back Free Month,has_activity_60d = 0 or recency_days >= 60,100,30,has_activity_60d,Only after 2 content-led re-engagement prompts have failed to produce a session.
+OFR-501,Habit-Building Quick Pick,active_days_30 < 8 or secs_30 in bottom quartile,0,0,active_days_30,"No discount; a scheduled notification, not a billing offer."
+OFR-502,Catalog Discovery Push,unq_30 in bottom quartile,0,0,unq_30,Adjacent-artist recommendations; no discount attached.
+OFR-601,Taste Refresh Prompt,completion_ratio in bottom quartile,0,0,completion_ratio,"In-app taste re-rating flow, not a discount; isolates model vs. catalog mismatch."
+OFR-602,Early Trend Check-In,activity_trend < 0 for 2+ consecutive periods,0,0,activity_trend,Single lightweight touch; escalate to OFR-401 if trend does not recover in one cycle.
