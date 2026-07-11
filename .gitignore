@@ -4,6 +4,8 @@ __pycache__/
 .env
 data/processed/*
 !data/processed/chunks.jsonl
+!data/processed/dense_index.faiss
+!data/processed/dense_index.ids.pkl
 data/eval/ablation_table.md
 .ipynb_checkpoints/
 mlruns/
