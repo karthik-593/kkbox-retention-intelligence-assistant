@@ -6,10 +6,12 @@ import json
 
 import tiktoken
 
+from src import config
+
 ENC = tiktoken.get_encoding("cl100k_base")
 
 
-def chunk_text(text: str, chunk_size: int = 400, overlap: int = 50) -> list[str]:
+def chunk_text(text: str, chunk_size: int = config.CHUNK_SIZE, overlap: int = config.CHUNK_OVERLAP) -> list[str]:
     tokens = ENC.encode(text)
     if not tokens:
         return []
@@ -24,7 +26,9 @@ def chunk_text(text: str, chunk_size: int = 400, overlap: int = 50) -> list[str]
     return chunks
 
 
-def chunk_records(records: list[dict], chunk_size: int = 400, overlap: int = 50) -> list[dict]:
+def chunk_records(
+    records: list[dict], chunk_size: int = config.CHUNK_SIZE, overlap: int = config.CHUNK_OVERLAP
+) -> list[dict]:
     """records: loader output ({text, source, doc_type, page}).
     Returns chunk dicts with a stable chunk_id (source::page::chunk-index), so eval gold labels
     and citations can reference a chunk deterministically across rebuilds."""

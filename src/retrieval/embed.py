@@ -6,16 +6,17 @@ was tuned to match against.
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
+from src import config
+
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 
 _model = None
 
 
-def get_model():
+def get_model() -> SentenceTransformer:
     global _model
     if _model is None:
-        _model = SentenceTransformer(MODEL_NAME)
+        _model = SentenceTransformer(config.EMBEDDING_MODEL)
     return _model
 
 
