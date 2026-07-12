@@ -6,6 +6,7 @@ data/processed/*
 !data/processed/chunks.jsonl
 !data/processed/dense_index.faiss
 !data/processed/dense_index.ids.pkl
+!data/processed/sparse_index.bm25.pkl
 data/eval/ablation_table.md
 .ipynb_checkpoints/
 mlruns/
