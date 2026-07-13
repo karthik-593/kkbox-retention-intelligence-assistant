@@ -31,3 +31,7 @@ CHUNK_OVERLAP = 50   # tokens
 
 # --- retrieval -------------------------------------------------------------
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+
+FUSE_K = 20   # candidate pool fed into RRF fusion / the reranker, before cutting to FINAL_K
+FINAL_K = 5   # final number of chunks returned to the caller
