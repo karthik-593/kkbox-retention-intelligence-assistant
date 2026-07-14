@@ -8,6 +8,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # --- data paths --------------------------------------------------------------
 CORPUS_DIR = REPO_ROOT / "data" / "raw" / "corpus"
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"      # chunks.jsonl, dense/sparse indices
+EVAL_DIR = REPO_ROOT / "data" / "eval"
+QUERIES_PATH = EVAL_DIR / "queries.jsonl"
 
 # filename -> doc_type (section 5 of the build plan). One manifest, so build_index.py doesn't
 # guess doc_type from a filename pattern -- a new corpus doc means adding one line here.
@@ -30,7 +32,13 @@ CHUNK_SIZE = 400     # tokens
 CHUNK_OVERLAP = 50   # tokens
 
 # --- retrieval -------------------------------------------------------------
-EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
+# named so experiments/mlflow_sweep.py can compare bge-small against a lighter alternative;
+# EMBEDDING_MODEL stays the single production default everything else uses.
+EMBEDDING_MODELS = {
+    "bge-small": "BAAI/bge-small-en-v1.5",
+    "minilm": "sentence-transformers/all-MiniLM-L6-v2",
+}
+EMBEDDING_MODEL = EMBEDDING_MODELS["bge-small"]
 RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 FUSE_K = 20   # candidate pool fed into RRF fusion / the reranker, before cutting to FINAL_K

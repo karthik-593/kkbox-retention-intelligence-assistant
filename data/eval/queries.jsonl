@@ -1,0 +1,20 @@
+{"query_id": "q01", "query": "auto-renew re-enablement retention for non-renewing subscribers", "gold_chunk_ids": ["playbook_p1_auto_renew_reenablement.pdf::p1::c0", "playbook_p1_auto_renew_reenablement.pdf::p1::c1"]}
+{"query_id": "q02", "query": "What happens to my subscription if I turn off auto-renew?", "gold_chunk_ids": ["policy_subscription_renewal.pdf::p1::c0"]}
+{"query_id": "q03", "query": "plan-commitment upsell converting short-cycle subscribers to longer plans", "gold_chunk_ids": ["playbook_p2_plan_commitment_upsell.pdf::p1::c0"]}
+{"query_id": "q04", "query": "discount-expiry retention for price-sensitive discount-dependent subscribers", "gold_chunk_ids": ["playbook_p3_discount_expiry_price_sensitivity.pdf::p1::c0", "playbook_p3_discount_expiry_price_sensitivity.pdf::p1::c1"]}
+{"query_id": "q05", "query": "Why did my price go up after my discount ended?", "gold_chunk_ids": ["support_faq.pdf::p1::c0"]}
+{"query_id": "q06", "query": "dormant listener win-back re-engagement campaign", "gold_chunk_ids": ["playbook_p4_dormant_winback.pdf::p1::c0", "playbook_p4_dormant_winback.pdf::p1::c1"]}
+{"query_id": "q07", "query": "I haven't listened in months, what are my cancellation options?", "gold_chunk_ids": ["support_faq.pdf::p1::c1"]}
+{"query_id": "q08", "query": "low-engagement activation building listening habits", "gold_chunk_ids": ["playbook_p5_low_engagement_activation.pdf::p1::c0"]}
+{"query_id": "q09", "query": "content discovery and catalog exploration for low-variety listeners", "gold_chunk_ids": ["playbook_p5_low_engagement_activation.pdf::p1::c0"]}
+{"query_id": "q10", "query": "recommendation quality improvement for high-skip listeners", "gold_chunk_ids": ["playbook_p6_recommendation_quality.pdf::p1::c0"]}
+{"query_id": "q11", "query": "declining-engagement early intervention for downward activity trend", "gold_chunk_ids": ["playbook_p6_recommendation_quality.pdf::p1::c0", "playbook_p6_recommendation_quality.pdf::p1::c1"]}
+{"query_id": "q12", "query": "How long are subscription plans and what happens if I change plan length mid-cycle?", "gold_chunk_ids": ["policy_subscription_renewal.pdf::p1::c0"]}
+{"query_id": "q13", "query": "What is the campaign contact cadence and cooldown between retention outreach?", "gold_chunk_ids": ["campaign_manual.pdf::p1::c0"]}
+{"query_id": "q14", "query": "Which channel is used for engagement playbooks versus billing playbooks?", "gold_chunk_ids": ["campaign_manual.pdf::p1::c0"]}
+{"query_id": "q15", "query": "What offer is eligible for a subscriber on the top plan price tier with an active discount?", "gold_chunk_ids": ["offer_eligibility_rules.csv::p5::c0"]}
+{"query_id": "q16", "query": "Which offer applies to a subscriber who hasn't listened in over 60 days?", "gold_chunk_ids": ["offer_eligibility_rules.csv::p6::c0"]}
+{"query_id": "q17", "query": "case notes about a subscriber whose discount expired and then cancelled", "gold_chunk_ids": ["historical_retention_notes.pdf::p1::c0"]}
+{"query_id": "q18", "query": "case note about a subscriber who churned because they were never offered a longer plan", "gold_chunk_ids": ["historical_retention_notes.pdf::p1::c0", "historical_retention_notes.pdf::p1::c1"]}
+{"query_id": "q19", "query": "how auto-renew risk and plan-commitment risk interact together", "gold_chunk_ids": ["playbook_p2_plan_commitment_upsell.pdf::p1::c0"]}
+{"query_id": "q20", "query": "What should support tell a subscriber whose recommendations feel off?", "gold_chunk_ids": ["support_faq.pdf::p1::c0"]}
