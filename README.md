@@ -11,9 +11,11 @@ architecture, and the phased build plan are in `retention_intelligence_assistant
 
 ## Status
 
-Day 1 — repository scaffolding. Nothing is implemented yet; this commit is the skeleton the rest of
-the project builds on. See `DECISIONS.md` for the architectural choices locked in before writing any
-retrieval or generation code.
+Retrieval is implemented and evaluated: ingestion, chunking, dense (FAISS) + sparse (BM25)
+retrieval, Reciprocal Rank Fusion, CrossEncoder reranking, a hand-labeled retrieval eval, and an
+MLflow sweep over chunk size / overlap / embedding model / top-k / rerank. Results below. Churn
+integration and the generation layer haven't landed yet — see `DECISIONS.md` for the architectural
+choices already locked in for both.
 
 ## Planned architecture
 
@@ -77,6 +79,25 @@ retrieval or generation code.
 Deliberately not used: LangChain/LlamaIndex, agent frameworks, MCP, LangGraph, long-term memory,
 Kubernetes, Prometheus/Grafana. See `DECISIONS.md` for why.
 
+## Retrieval evaluation (20 hand-labeled queries, k=5)
+
+| System | Recall@5 | MRR | Latency (ms) |
+|---|---|---|---|
+| BM25 only | 0.900 | 0.842 | 0.2 |
+| Dense only | 0.925 | 0.925 | 17.3 |
+| Hybrid (BM25+Dense+RRF) | 0.925 | 0.900 | 13.3 |
+| Hybrid + CrossEncoder rerank | 0.900 | 0.900 | 502.2 |
+
+At this corpus's scale, hybrid+RRF alone already saturates recall, so the reranker's ~500ms doesn't
+pay for itself here — see `DECISIONS.md` for why it's still kept in the pipeline.
+
+## MLflow retrieval sweep (72 runs: chunk_size × overlap × embedding × top_k × rerank)
+
+![MLflow evaluation runs, sorted by recall_at_k](docs/mlflow_sweep_results.png)
+
+Confirms chunk_size=400 / overlap=50 as the right default. Full reasoning on the embedding-model and
+rerank trade-offs in `DECISIONS.md`.
+
 ## Repository layout
 
 ```
@@ -106,5 +127,12 @@ pip install -r requirements.txt
 cp .env.example .env        # fill in GROQ_API_KEY, or set LLM_BACKEND=ollama
 ```
 
-Nothing is runnable yet — ingestion, retrieval, churn integration, and generation land over the
-following days per the build plan.
+```bash
+python scripts/generate_corpus.py     # synthetic corpus -> data/raw/corpus/
+python scripts/build_index.py         # ingest -> chunk -> embed -> dense + sparse indices
+python eval/retrieval_eval.py         # ablation table -> data/eval/ablation_table.md
+python experiments/mlflow_sweep.py    # retrieval config sweep -> logged to mlflow.db
+```
+
+Churn integration and generation aren't built yet, so `src/app.py` and the demo queries aren't
+runnable — that lands over the following days per the build plan.
