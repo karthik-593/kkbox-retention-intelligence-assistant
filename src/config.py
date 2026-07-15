@@ -7,6 +7,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # --- data paths --------------------------------------------------------------
 CORPUS_DIR = REPO_ROOT / "data" / "raw" / "corpus"
+SUBSCRIBERS_PATH = REPO_ROOT / "data" / "raw" / "sample_subscribers.csv"
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"      # chunks.jsonl, dense/sparse indices
 EVAL_DIR = REPO_ROOT / "data" / "eval"
 QUERIES_PATH = EVAL_DIR / "queries.jsonl"
@@ -26,6 +27,9 @@ CORPUS_MANIFEST = {
     "historical_retention_notes.pdf": "case_notes",
     "offer_eligibility_rules.csv": "eligibility_rules",
 }
+
+# --- churn model ---------------------------------------------------------------
+MODEL_DIR = REPO_ROOT / "models" / "churn_model" / "artifacts"
 
 # --- chunking ------------------------------------------------------------------
 CHUNK_SIZE = 400     # tokens
