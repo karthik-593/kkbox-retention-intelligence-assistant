@@ -47,3 +47,11 @@ RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 FUSE_K = 20   # candidate pool fed into RRF fusion / the reranker, before cutting to FINAL_K
 FINAL_K = 5   # final number of chunks returned to the caller
+
+# --- generation -------------------------------------------------------------
+# Groq (hosted Llama 3.3 70B) is the primary path; Ollama (local Qwen2.5) is a fully offline
+# fallback -- src/generation/generator.py picks between them off the LLM_BACKEND env var.
+LLM_BACKEND_DEFAULT = "groq"
+GROQ_MODEL_DEFAULT = "llama-3.3-70b-versatile"
+OLLAMA_MODEL_DEFAULT = "qwen2.5"
+OLLAMA_HOST_DEFAULT = "http://localhost:11434"
